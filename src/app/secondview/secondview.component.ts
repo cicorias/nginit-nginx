@@ -10,14 +10,13 @@ import { StartupService } from "app/startup.service";
 
 export class SecondviewComponent implements OnInit {
 
-  constructor(private app: AppComponent, startup: StartupService) {
-    console.log('URL via get %s', startup.gatewayApiHost);
-    console.log('URL via simple get %s', startup.anotherWay);
-    //console.log('URL via Public field is: %s', startup.gwurl);
-  }
+  constructor(private app: AppComponent, private startup: StartupService) { }
 
   ngOnInit() {
     this.app.setTitle("Foobar 2");
+    console.log('URL - via get %s', this.startup.gatewayApiHost);
+    console.log('URL - via simple get %s', this.startup.anotherWay);
+    //console.log('URL via Public field is: %s', startup.gwurl);
   }
 
 }

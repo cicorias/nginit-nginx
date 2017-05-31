@@ -6,10 +6,11 @@ We ran into a scenario where we had an Angular site running in Docker on Azure W
 
 However, we wanted to simplify deployment and instead pull the data from from some enviroment variables server side. For this approach we took advantage of `AppSettings` in Azure WebApps - which show up as environment variables with an `APPSETTING_` prefix.
 
-Then, using a simple NodeJS server for static files, courtesy of this StackOverflow post: (How to call an rest api while bootstrapping angular 2 app)[http://stackoverflow.com/questions/41619443/how-to-call-an-rest-api-while-bootstrapping-angular-2-app].
+In this example, the server is nginx and a shell script is used to start nginx, but also create a static `config.json` file that is read by the service in the Angular app.
 
 ## Approach
 TODO
 
-## Simmple Static Web Service
-Simple Static Web Service with a small API
+
+# References
+The approach on the nginx shell script and environment settings is from (Jurgen Van de Moere)[https://www.jvandemo.com/how-to-configure-your-angularjs-application-using-environment-variables/]

@@ -23,7 +23,7 @@ export class StartupService {
         this._startupData = null;
 
         return this.http
-            .get('/config')
+            .get('/config.json')
             .map((res: Response) => res.json())
             .toPromise()
             .then((data: any) => this._startupData = data)
@@ -35,17 +35,17 @@ export class StartupService {
     }
 
     get gatewayApiHost():string {
-        let rv = this.startupData["APPSETTING_URL"] 
+        let rv = this.startupData["GatewayApiUrl"] 
             || environment.gatewayApiHost || 'http://localhost:3030';
-        console.log('gatewayHost: %s', rv);
+        console.log('gatewayHost..: %s', rv);
         return rv;
     }
 
     get anotherWay():string {
-        return this.startupData["APPSETTING_URL"];
+        return this.startupData["GatewayApiUrl"];
     }
 
     //this fails to work as the accessor is not ready and load() hasn't run either.
-    //public gwurl = this._startupData["APPSETTING_URL"] || "not loaded yet";
+    //public gwurl = this._startupData["GATEWAY_API_URL"] || "not loaded yet";
 
 }
